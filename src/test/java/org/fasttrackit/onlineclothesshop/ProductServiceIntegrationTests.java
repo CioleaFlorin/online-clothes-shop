@@ -100,7 +100,7 @@ public class ProductServiceIntegrationTests {
         SaveProductRequest request = new SaveProductRequest();
         request.setName("T-Shirt");
         request.setBrand("Gucci");
-        request.setPrice(55.0);
+        request.setPrice(50.0);
         request.setQuantity(40);
         request.setDescription("Starter Men's Long Sleeve Tech T-Shirt");
 
