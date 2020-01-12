@@ -1,39 +1,18 @@
-package org.fasttrackit.onlineclothesshop.domain;
+package org.fasttrackit.onlineclothesshop.transfer;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
 
-@Entity
-public class Product {
-    @Id
-    @GeneratedValue
+public class ProductResponse {
     private Long id;
+    private String description;
     @NotNull
     private String name;
-    private String description;
     private String brand;
     @NotNull
     private Double price;
     @NotNull
     private Integer quantity;
     private String imageUrl;
-
-    @ManyToMany(mappedBy = "products")
-    private Set<Cart> carts = new HashSet<>();
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Long getId() {
         return id;
@@ -49,6 +28,14 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getBrand() {
@@ -83,33 +70,12 @@ public class Product {
         this.imageUrl = imageUrl;
     }
 
-    public Set<Cart> getCarts() {
-        return carts;
-    }
-
-    public void setCarts(Set<Cart> carts) {
-        this.carts = carts;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return id.equals(product.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
-
     @Override
     public String toString() {
-        return "Product{" +
+        return "ProductResponse{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", name='" + name + '\'' +
                 ", brand='" + brand + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
